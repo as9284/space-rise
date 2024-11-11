@@ -10,7 +10,7 @@ export const Header = memo(({ activePage, setActivePage }) => {
     });
 
   return (
-    <div className="w-full fixed bg-black/60 drop-shadow-md backdrop-blur-md z-50 flex flex-col justify-between items-center select-none">
+    <div className="w-full fixed bg-black/80 drop-shadow-md backdrop-blur-md z-50 flex flex-col justify-between items-center select-none">
       <div className="w-full flex flex-col justify-center items-center py-4">
         <h1 className="text-3xl font-extrabold uppercase flex justify-center items-center gap-2 text-neutral-200">
           <span className="-rotate-90">

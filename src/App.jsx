@@ -11,7 +11,7 @@ export const App = () => {
     <>
       <Header activePage={activePage} setActivePage={setActivePage} />
       <BrowserRouter>
-        <div className="pt-28 w-full">
+        <div className="pt-24 pb-6 w-full">
           <Routes>
             <Route path="/" element={<Home activePage={activePage} />} />
           </Routes>
