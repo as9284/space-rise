@@ -19,7 +19,7 @@ export const Header = memo(({ activePage, setActivePage }) => {
           Space Rise
         </h1>
       </div>
-      <div className="w-full flex justify-center items-center bg-neutral-700 text-neutral-200">
+      <div className="w-full flex justify-center items-center bg-black/80 text-neutral-200">
         <button
           onClick={() => setActivePage("articles")}
           className={getButtonClass("articles")}

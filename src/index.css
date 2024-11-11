@@ -7,3 +7,18 @@
     @apply font-inter bg-neutral-800 text-neutral-200;
   }
 }
+
+.spinner {
+  border-radius: 50%;
+  border: 4px solid rgb(226, 232, 240);
+  border-top-color: rgb(51, 51, 51);
+  width: 3rem;
+  height: 3rem;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

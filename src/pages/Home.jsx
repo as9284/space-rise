@@ -4,8 +4,10 @@ import axios from "axios";
 export const Home = ({ activePage }) => {
   const [content, setContent] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const fetchData = useCallback(async () => {
+    setLoading(true);
     const endpoint = ["articles", "blogs", "reports"].includes(activePage)
       ? activePage
       : "articles";
@@ -19,6 +21,8 @@ export const Home = ({ activePage }) => {
     } catch (error) {
       console.error(`Error fetching ${activePage}:`, error);
       setError("Failed to load content. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   }, [activePage]);
 
@@ -38,7 +42,9 @@ export const Home = ({ activePage }) => {
     <div className="w-full min-h-dvh m-auto flex flex-col justify-center items-center">
       <div className="w-full flex flex-wrap justify-center items-center gap-6 p-6">
         {error ? (
-          <p className="text-red-500">{error}</p>
+          <p className="text-red-500 font-medium">{error}</p>
+        ) : loading ? (
+          <div className="spinner border-4 border-gray-300 border-t-4 border-t-blue-500 rounded-full w-16 h-16 animate-spin"></div>
         ) : content.length ? (
           content.map((item) => (
             <div
@@ -77,7 +83,7 @@ export const Home = ({ activePage }) => {
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <p>No content available.</p>
         )}
       </div>
     </div>
