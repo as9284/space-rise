@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home } from "./pages/Home";
+import { Header } from "./components/Header";
 
 export const App = () => {
+  const [activePage, setActivePage] = useState("articles");
+
   return (
     <>
+      <Header activePage={activePage} setActivePage={setActivePage} />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <div className="pt-28 w-full">
+          <Routes>
+            <Route path="/" element={<Home activePage={activePage} />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </>
   );
